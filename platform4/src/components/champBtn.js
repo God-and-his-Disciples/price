@@ -19,7 +19,7 @@ class champBtn extends React.Component {
     }
 
     onClick() {
-        this.props.deployerContract.methods.retrieveNFT(this.props.tokenId).send({from:this.props.userAddress})
+        this.props.deployerContract.methods.retrieveNFT(this.props.tokenId-1).send({from:this.props.userAddress})
     }
 }
 
