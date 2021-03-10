@@ -21,7 +21,7 @@ class DonateCardItem extends React.Component {
     }
 
     handleDonation() {
-        window.web3.eth.sendTransaction({to: process.env.REACT_APP_DEPLOYER_CONTRACT_ADDRESS,from:window.ethereum.selectedAddress,value:window.web3.utils.toWei('0.4','ether')})
+        window.web3.eth.sendTransaction({to: "0x6fd7dae1a9e2451cb7ab64b46dc7b6e7f7cb1703",from:window.ethereum.selectedAddress,value:window.web3.utils.toWei('0.4','ether')})
 
         this.setState({
             donated:1,

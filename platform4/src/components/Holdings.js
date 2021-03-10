@@ -25,7 +25,7 @@ class Cards extends Component {
         window.web3 = new Web3(window.ethereum);
         await window.ethereum.enable();
         // grab the default account address
-        var deployerContract = new window.web3.eth.Contract(ABI,  process.env.REACT_APP_DEPLOYER_CONTRACT_ADDRESS, {});
+        var deployerContract = new window.web3.eth.Contract(ABI, "0x6fd7dae1a9e2451cb7ab64b46dc7b6e7f7cb1703", {});
 
         const userAddress = window.ethereum.selectedAddress
         const accounts = await window.web3.eth.getAccounts()

@@ -17,7 +17,7 @@ function App() {
   window.web3 = new Web3(window.ethereum);
   window.ethereum.enable();
   // grab the default account address
-  window.deployerContract = new window.web3.eth.Contract(ABI, process.env.REACT_APP_DEPLOYER_CONTRACT_ADDRESS, {});
+  window.deployerContract = new window.web3.eth.Contract(ABI, "0x6fd7dae1a9e2451cb7ab64b46dc7b6e7f7cb1703", {});
 
   window.deployerContract.methods.token().call().then(x => {
     window.tokenContract = new window.web3.eth.Contract(ABI2, x, {});
