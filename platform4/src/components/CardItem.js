@@ -15,6 +15,17 @@ class CardItem extends React.Component {
         sell: false,
         quantity: 0,
     };
+    this.passTransactionData = this.passTransactionData.bind(this);
+  }
+
+  passTransactionData() {
+    localStorage.setItem('playerPurchaseName', this.props.title);
+    localStorage.setItem('playerPurchaseTeam', '');
+    localStorage.setItem('playerPurchasePos', '');
+    localStorage.setItem('playerPurchasePrice', this.props.marketPrice + ' ETH');
+    localStorage.setItem('playerPurchaseImg', this.props.src);
+    localStorage.setItem('playerPurchaseLabel', this.props.label);
+    localStorage.setItem('playerTokenId', this.props.tokenId);
   }
 
   render() {
@@ -45,7 +56,7 @@ class CardItem extends React.Component {
               <Button buttonStyle='MrktButton--sell' onClick={this.props.action2Handler}>{this.props.btn2Title}</Button>
             </div>}
             {this.props.mainBtnText && <div className="cards__item__pos">
-              <button className="card_item_main_button" onClick={this.props.mainBtnHandler}>{this.props.mainBtnText}</button>
+              <button className="card_item_main_button" onClick={this.passTransactionData}>{this.props.mainBtnText}</button>
             </div>}
             </div>
           </Link>}

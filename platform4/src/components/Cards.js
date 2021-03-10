@@ -17,18 +17,21 @@ class Cards extends React.Component {
   }
 
   generateData() {
-    return {
+    var y = Math.floor(Math.random()*20);
+    const x =  {
       labels: ['O', 'N', 'D', 'J', 'F', 'M'],
       datasets: [
         {
           label: 'Share Price (ETH)',
-          data: [Math.floor(Math.random()*20), Math.floor(Math.random()*20), Math.floor(Math.random()*20), Math.floor(Math.random()*20), Math.floor(Math.random()*20), Math.floor(Math.random()*20)],
+          data: [Math.floor(Math.random()*20), Math.floor(Math.random()*20), Math.floor(Math.random()*20), Math.floor(Math.random()*20), Math.floor(Math.random()*20), y],
           fill: false,
           backgroundColor: 'rgb(255, 99, 132)',
           borderColor: 'rgba(255, 99, 132, 0.2)',
         },
       ],
     };
+    return {data: x, marketPrice: y};
+
   }
 
   componentDidMount() {
@@ -91,15 +94,17 @@ class Cards extends React.Component {
             },
           };
           let arr = items.map((player) => {
+              var graphStuff = this.generateData();
               return (
                   <CardItem
                       src={player.pic}
                       title={player.name}
                       graphEnabled={true}
-                      graphData={this.generateData()}
+                      graphData={graphStuff.data}
+                      marketPrice={graphStuff.marketPrice}
                       graphOptions={options}
                       label='All-Star'
-                      path='/marketplace'
+                      path='/transactions'
                       mainBtnText='More'
                       tokenId={player.token_id}
                   />
