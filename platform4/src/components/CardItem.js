@@ -26,6 +26,7 @@ class CardItem extends React.Component {
     localStorage.setItem('playerPurchaseImg', this.props.src);
     localStorage.setItem('playerPurchaseLabel', this.props.label);
     localStorage.setItem('playerTokenId', this.props.tokenId);
+    localStorage.setItem('playerPriceHistory', JSON.stringify(this.props.priceHistory));
   }
 
   render() {
