@@ -382,4 +382,4 @@ exports.ABI = [
 	}
 ]
 
-exports.address = "0x9f0150979c3597f239e95906f640bdaf43db5dd4"
+exports.address = "0x74691680395d80cabbdc963d890a998082c72c3d"
