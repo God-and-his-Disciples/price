@@ -22,7 +22,7 @@ function App() {
   window.deployerContract = new window.web3.eth.Contract(helper.ABI, helper.address, {});
 
   window.deployerContract.methods.token().call().then(x => {
-    window.tokenContract = new window.web3.eth.Contract(ABI2, x, {});
+    window.tokenContract = new window.web3.eth.Contract(helper.ABI, x, {});
   })
 
   return (

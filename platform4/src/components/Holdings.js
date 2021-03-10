@@ -71,7 +71,7 @@ class Cards extends Component {
     
     createPlayerCards() {
         let ret = '';
-        fetch('http://hax.hacker.af:5000/grip_league')
+        fetch(`${process.env.REACT_APP_NBA_API}grip_league`)
         .then(response => response.json())
         .then(data => {
 

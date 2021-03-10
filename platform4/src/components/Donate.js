@@ -16,7 +16,7 @@ class Donate extends React.Component {
   }
 
   componentDidMount() {
-      fetch("http://hax.hacker.af:5000/grip_league")
+      fetch(`${process.env.REACT_APP_NBA_API}grip_league`)
         .then(res => res.json())
         .then(
           (result) => {
