@@ -103,7 +103,7 @@ class Cards extends React.Component {
                       graphData={graphStuff.data}
                       priceHistory={graphStuff.priceHistory}
                       graphOptions={options}
-                      label='All-Star'
+                      label = {player.allstar === 'true' ? 'All-Star' : 'Player'}
                       path='/transactions'
                       mainBtnText='More'
                       tokenId={player.token_id}
