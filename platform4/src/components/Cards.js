@@ -17,20 +17,20 @@ class Cards extends React.Component {
   }
 
   generateData() {
-    var y = Math.floor(Math.random()*20);
+    var y = [Math.random().toFixed(4), Math.random().toFixed(4), Math.random().toFixed(4), Math.random().toFixed(4), Math.random().toFixed(4), Math.random().toFixed(4)];
     const x =  {
       labels: ['O', 'N', 'D', 'J', 'F', 'M'],
       datasets: [
         {
           label: 'Share Price (ETH)',
-          data: [Math.floor(Math.random()*20), Math.floor(Math.random()*20), Math.floor(Math.random()*20), Math.floor(Math.random()*20), Math.floor(Math.random()*20), y],
+          data: y,
           fill: false,
           backgroundColor: 'rgb(255, 99, 132)',
           borderColor: 'rgba(255, 99, 132, 0.2)',
         },
       ],
     };
-    return {data: x, marketPrice: y};
+    return {data: x, priceHistory: y};
 
   }
 
@@ -101,7 +101,7 @@ class Cards extends React.Component {
                       title={player.name}
                       graphEnabled={true}
                       graphData={graphStuff.data}
-                      marketPrice={graphStuff.marketPrice}
+                      priceHistory={graphStuff.priceHistory}
                       graphOptions={options}
                       label='All-Star'
                       path='/transactions'

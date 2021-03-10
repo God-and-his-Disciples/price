@@ -88,7 +88,7 @@ class Cards extends React.Component {
         const { error, isLoaded, items } = this.state;
         const numShares = 5;
         const sharePrice = 0.0006;
-        const price = parseFloat(localStorage.getItem('playerPurchasePrice').slice(0,-4)).toFixed(2);
+        const price = JSON.parse(localStorage.getItem('playerPriceHistory'))[5].toString();
         const totalCost = (this.state.quantity*price+(items.average*0.000000001*21000)).toFixed(4);
         if (error) {
             return <div>Error: {error.message}</div>;
@@ -108,12 +108,14 @@ class Cards extends React.Component {
                         sellAssert={this.setSell}
                         setQuantity={this.setQuantity}
                         src={localStorage.getItem('playerPurchaseImg') || ''}
+                        graphData={JSON.parse(localStorage.getItem('playerGraphData')) || ''}
+                        graphOptions={JSON.parse(localStorage.getItem('playerGraphOptions')) || ''}
                         name={localStorage.getItem('playerPurchaseName') || ''}
                         team={localStorage.getItem('playerPurchaseTeam') || ''}
                         position={localStorage.getItem('playerPurchasePos') || ''}
                         label={localStorage.getItem('playerPurchaseLabel') || ''}
                         path='/marketplace'
-                        price={localStorage.getItem('playerPurchasePrice') || ''}
+                        price={JSON.parse(localStorage.getItem('playerPriceHistory'))[5].toString() + ' ETH' || ''}
                         />
                     </ul>
                     </div>
@@ -122,7 +124,7 @@ class Cards extends React.Component {
                         <center><h3>{window.ethereum.selectedAddress}</h3></center>
                         <br></br>
                         <center><h2>Price Summary: </h2></center>
-                        <h4>{this.state.quantity.toString() + ' Shares x ' + localStorage.getItem('playerPurchasePrice') + '/share + Est. Gas: ' + items.average + ' * 21000 gwei = ' + totalCost.toString() + ' ETH'}</h4>
+                        <h4>{this.state.quantity.toString() + ' Shares x ' + JSON.parse(localStorage.getItem('playerPriceHistory'))[5].toString() + ' ETH' + '/share + Est. Gas: ' + items.average + ' * 21000 gwei = ' + totalCost.toString() + ' ETH'}</h4>
                         <br></br>
                         <center><button className ="purchase-confirmation" onClick={this.handlePurchase}>Confirm</button></center>
                     </div>

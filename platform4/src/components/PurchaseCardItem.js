@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './MrktButton';
+import { Line } from 'react-chartjs-2';
 import './PurchaseCardItem.css';
 
 class PurchaseCardItem extends React.Component {
@@ -36,6 +37,30 @@ class PurchaseCardItem extends React.Component {
       }
 
     render() {
+      console.log(JSON.parse(localStorage.getItem('playerPriceHistory'))[0]);
+      const data = {
+        labels: ['O', 'N', 'D', 'J', 'F', 'M'],
+        datasets: [
+          {
+            label: 'Share Price (ETH)',
+            data: JSON.parse(localStorage.getItem('playerPriceHistory')),
+            fill: false,
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgba(255, 99, 132, 0.2)',
+          },
+        ],
+      };
+      const options = {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
+        },
+      };
         return (
             <>
               <li className='cards__item'>
@@ -49,8 +74,14 @@ class PurchaseCardItem extends React.Component {
                   </figure>
                   <div className='cards__item__info'>
                     <h5 className='cards__item__name'>{this.props.name}</h5>
-                    <h5 className='cards__item__position'>Market Price: {this.props.price}</h5>
+                    <h5 className='cards__item__position'>Cuurent Market Price: {this.props.price}</h5>
                   </div>
+                  <Line
+                    data={data}
+                    width={100}
+                    height={70}
+                    options={options}
+                  />
                   <div className="shares-quantity">
                     <h5 className='cards__item__name'>Enter Share Quantity</h5>
                     <center><input className="quantity-input" type="number" min="0" max="1000" onChange={this.handleChange}></input></center>
