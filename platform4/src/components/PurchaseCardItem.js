@@ -49,8 +49,6 @@ class PurchaseCardItem extends React.Component {
                   </figure>
                   <div className='cards__item__info'>
                     <h5 className='cards__item__name'>{this.props.name}</h5>
-                    <h5 className='cards__item__team'>Team: {this.props.team}</h5>
-                    <h5 className='cards__item__position'>Position: {this.props.position}</h5>
                     <h5 className='cards__item__position'>Market Price: {this.props.price}</h5>
                   </div>
                   <div className="shares-quantity">
