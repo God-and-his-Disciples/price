@@ -11,7 +11,7 @@ class DividendBtn extends React.Component {
     render() {
         if (this.props.tokenId < 10) {
             return (
-                <button className="purchase-confirmation" onClick={this.onClick}>Collect Dividends</button>
+                <button className="purchase-confirmation" onClick={this.onClick}>Collect Bounty</button>
             )
         } else {
             return(<div></div>);
