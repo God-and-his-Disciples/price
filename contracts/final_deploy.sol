@@ -2164,4 +2164,11 @@ contract MainManager is OffchainConsumer {
         
         currWeekDividendFund = 0; 
     }
+    
+    function giveDividendPerPlayer(string memory request_uri) public hasSeasonStarted {
+        require(lastDividendWithdrawn[msg.sender] < currWeekStart);
+
+        lastDividendWithdrawn[msg.sender] = block.timestamp;
+        requestDividendWorthyEntities(request_uri);
+    }
 }
