@@ -4,13 +4,7 @@
 ```solidity
 function giveDividendPerPlayer(string memory request_uri) public hasSeasonStarted {
         require(lastDividendWithdrawn[msg.sender] < currWeekStart);
-
-        // res is from chainlink 
-        // tokenId is entityId
-        // balanceOf() is shares_owned
-        // entityToPublicShareAmount[token_id] is shares_in_circulation
-        // lastWeekDividendFund is dividend_fund
-
+        
         lastDividendWithdrawn[msg.sender] = block.timestamp;
         requestDividendWorthyEntities(request_uri);
 
