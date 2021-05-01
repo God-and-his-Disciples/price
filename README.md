@@ -7,7 +7,5 @@ function giveDividendPerPlayer(string memory request_uri) public hasSeasonStarte
         
         lastDividendWithdrawn[msg.sender] = block.timestamp;
         requestDividendWorthyEntities(request_uri);
-
-        // send back sendAmount
     }
 ```
